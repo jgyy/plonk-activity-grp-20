@@ -13,6 +13,15 @@ You should *not* import the `gen_copy_constraints` from `plonk.sample_problem` i
 pip install -e .
 ```
 
+using python 3.12 will fail, following possible step to install previous python version
+
+```bash
+conda create --name py310 python=3.10
+conda activate py310
+pip install -e .
+jupyter notebook
+```
+
 See [./plonk.ipynb](./plonk.ipynb) for the tutorial.
 
 ## Testing
@@ -31,3 +40,15 @@ https://t.me/plonk_tutorial
 ## Citation
 
 The original tutorial is from https://github.com/barryWhiteHat/plonk_tutorial
+
+## Stuff edited from this repo
+
+- from def gen_witness(x) to def gen_witness(x, y, z)
+- for def is_satisfied_witness(a, b, c), directly assert a2 to c2 instead.
+- changed gen_witness(3) to gen_witness(3, 4, 5)
+- commented out some code for def gen_constraints()
+- write own implementation of def find_permutation(witness)
+- remove sample_problem and replace it with copy_constraint_simple
+- polynomial_eval assertion fail, not yet figured out root cause
+- renamed witness_x_abc to witness_x_123
+- stopped just before Part x: FFT as stated in assignment, content below all removed
